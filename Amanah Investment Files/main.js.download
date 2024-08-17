@@ -1,0 +1,205 @@
+AOS.init({
+    offset: 100,
+    duration: 1000
+});
+
+
+jQuery(document).ready(function($) {
+    $("#menu").mmenu({
+        "extensions": ["effect-menu-zoom", "effect-panels-zoom", "pagedim-black", "theme-dark"],
+        "offCanvas": {
+            "position": "right"
+        },
+        "counters": true,
+        "iconPanels": true,
+        "navbars": [{
+            "position": "top"
+        }]
+    });
+});
+// menu close
+
+// pop up
+// -------------------------banner Text-----------------------------
+
+
+let textEle = document.querySelectorAll(".text1");
+for (let i = 0; i < textEle.length; i++) {
+    let textOne = document.querySelectorAll(".text1")[i].innerText.split(" ");
+    textEle[i].innerText = "";
+    for (let j = 0; j < textOne.length; j++) {
+
+        let node = document.createElement("div");
+        node.classList.add("mystyle");
+        let textnode = document.createTextNode(textOne[j])
+
+        node.appendChild(textnode);
+        textEle[i].appendChild(node);
+    }
+
+}
+
+let textEles = document.querySelectorAll(".mystyle");
+
+for (let i = 0; i < textEles.length; i++) {
+    let textOne = document.querySelectorAll(".mystyle")[i].innerText.split("");
+    textEles[i].innerText = "";
+    for (let j = 0; j < textOne.length; j++) {
+
+        let node = document.createElement("span");
+
+        let textnode = document.createTextNode(textOne[j])
+
+        node.appendChild(textnode);
+        textEles[i].appendChild(node);
+    }
+
+}
+
+
+
+
+var swiper4 = new Swiper(".mySwiper", {
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+        simulateTouch:false, 
+    },
+    navigation: {
+        nextEl: ".right_banner",
+        prevEl: ".left_banner",
+    },
+});
+$(document).ready(function() {
+    $('.all2').owlCarousel({
+        loop: true,
+        margin: 20,
+        navigation: true,
+        autoplay: true,
+        animateOut: 'slideOutDown',
+        animateIn: 'flipInY',
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        items: 1,
+        mousewheel: false,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            400: {
+                items: 1
+            },
+
+            700: {
+                items: 2
+            },
+            900: {
+                items: 3
+            },
+            1000: {
+                items: 4
+
+            }
+        }
+
+    });
+
+});
+$(".right_btn").click(function() {
+    var owl = $(".all2");
+    owl.trigger('next.owl.carousel');
+});
+$(".left_btn").click(function() {
+    var owl = $(".all2");
+    owl.trigger('prev.owl.carousel');
+});
+
+
+
+
+
+$(document).ready(function() {
+    $('.all3').owlCarousel({
+        loop: true,
+        margin: 0,
+        navigation: true,
+        autoplay: true,
+        autoplayTimeout: 9000,
+        autoplayHoverPause: true,
+        items: 3,
+        slideBy: 3,
+        mousewheel: false,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            400: {
+                items: 1
+            },
+
+            700: {
+                items: 1
+            },
+            900: {
+                items: 3
+            },
+            1000: {
+                items: 3
+
+            }
+        }
+
+    });
+
+});
+$(".right_btn").click(function() {
+    var owl = $(".all3");
+    owl.trigger('next.owl.carousel');
+});
+$(".left_btn").click(function() {
+    var owl = $(".all3");
+    owl.trigger('prev.owl.carousel');
+});
+
+// ----three js ----------\
+$(".backToTop").on("click", function () {
+    scroll({
+        top: 0,
+    })
+})
+window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+    if (scroll >= 1000) {
+        $(".backToTop").css({
+            opacity: 1,
+            cursor: "pointer",
+            zindex: 9
+        })
+    } else {
+        $(".backToTop").css({
+            opacity: 0,
+            zindex: 0
+
+
+        })
+    }
+});
+$('.search').click(function(){
+    $('.fixed_side').addClass('fixed_side_');
+    $('.search_pop').addClass('search_pop_');
+});
+$('.close_').click(function(){
+    $('.fixed_side').removeClass('fixed_side_');
+    $('.search_pop').removeClass('search_pop_');
+    $('.pop').removeClass('pop_');
+});
+
+$('.fixed_side_').click(function(){
+    $('.fixed_side').removeClass('fixed_side_');
+    $('.search_pop').removeClass('search_pop_');
+    $('.pop').removeClass('pop_');
+});
